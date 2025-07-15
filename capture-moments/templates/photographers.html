@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Photographers{% endblock %}
+{% block content %}
+<h2 class="text-center mb-4" style="color: var(--neon-cyan); text-shadow: 0 0 8px var(--neon-cyan);">Available Photographers</h2>
+<div class="row justify-content-center">
+  {% for p in photographers %}
+    <div class="col-md-4 mb-4">
+      <div class="card p-3 h-100 text-center">
+        <h3 style="color: var(--neon-yellow); text-shadow: 0 0 6px var(--neon-yellow);">{{ p['Name'] }}</h3>
+        <p><strong>ID:</strong> {{ p['photographer_id'] }}</p>
+        <p><strong>Skills:</strong> {{ p['Skills'] }}</p>
+        <p><strong>Availability:</strong> {{ p['availability'] | join(', ') }}</p>
+        {% if p['Photo'] %}
+          <img src="{{ p['Photo'] }}" alt="{{ p['Name'] }}" class="img-fluid rounded mt-2 mb-2" style="max-width:200px; box-shadow: 0 0 10px var(--neon-blue);">
+        {% else %}
+          <p>No image available</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<a href="/" class="btn btn-neon mt-3">&larr; Back to Home</a>
+{% endblock %} 

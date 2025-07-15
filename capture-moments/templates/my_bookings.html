@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}My Bookings - Capture Moments{% endblock %}
+{% block content %}
+<div class="container py-4">
+    <h2 style="color: var(--neon-cyan); text-shadow: 0 0 8px var(--neon-cyan);">My Bookings</h2>
+    {% if bookings %}
+    <div class="table-responsive">
+        <table class="table table-dark table-striped align-middle">
+            <thead>
+                <tr>
+                    <th>{% if session.get('is_photographer') %}Client{% else %}Photographer{% endif %}</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Duration (hrs)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>
+                        {% if session.get('is_photographer') %}
+                            {{ booking.user.username }}
+                        {% else %}
+                            {{ booking.photographer.name }}
+                        {% endif %}
+                    </td>
+                    <td>{{ booking.date }}</td>
+                    <td>{{ booking.time }}</td>
+                    <td>{{ booking.duration }}</td>
+                    <td>
+                        <span class="badge" style="background: {% if booking.status == 'pending' %}var(--neon-yellow){% elif booking.status == 'accepted' %}var(--neon-cyan){% elif booking.status == 'rejected' %}var(--neon-pink){% else %}#444{% endif %}; color: #18181B; box-shadow: 0 0 8px {% if booking.status == 'pending' %}var(--neon-yellow){% elif booking.status == 'accepted' %}var(--neon-cyan){% elif booking.status == 'rejected' %}var(--neon-pink){% else %}#444{% endif %};">{{ booking.status|capitalize }}</span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>No bookings yet.</p>
+    {% endif %}
+</div>
+{% endblock %} 

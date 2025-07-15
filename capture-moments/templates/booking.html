@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}Book Photographer - Capture Moments{% endblock %}
+{% block content %}
+<section class="container py-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4" style="box-shadow: 0 0 10px var(--neon-blue);">
+                <div class="row g-0">
+                    <div class="col-md-4 text-center">
+                        <img src="{{ url_for('static', filename='img/avatar_default.png') }}" class="img-fluid rounded-circle m-3" alt="Photographer Avatar" width="100" height="100" style="box-shadow: 0 0 8px var(--neon-cyan);">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: var(--neon-cyan);">{{ photographer.name }}</h5>
+                            <p class="card-text">Specialty: <span style="color: var(--neon-yellow);">{{ photographer.specialty }}</span></p>
+                            <p class="card-text">Location: <span style="color: var(--neon-yellow);">{{ photographer.location }}</span></p>
+                            <p class="card-text">Price: <span style="color: var(--neon-yellow);">${{ photographer.price_per_hour }}/hr</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="date" class="form-label" style="color: var(--neon-yellow);">Date</label>
+                    <input type="date" class="form-control" id="date" name="date" min="1900-01-01" max="2100-12-31" required>
+                </div>
+                <div class="mb-3">
+                    <label for="time" class="form-label" style="color: var(--neon-yellow);">Time</label>
+                    <input type="time" class="form-control" id="time" name="time" required>
+                </div>
+                <div class="mb-3">
+                    <label for="duration" class="form-label" style="color: var(--neon-yellow);">Duration (hours)</label>
+                    <input type="number" class="form-control" id="duration" name="duration" min="1" max="12" required>
+                </div>
+                <button type="submit" class="btn btn-neon">Book Now</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4" style="background: #232336; box-shadow: 0 0 10px var(--neon-pink);">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: var(--neon-pink);">Booking Summary</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><strong>Photographer:</strong> <span style="color: var(--neon-cyan);">{{ photographer.name }}</span></li>
+                        <li><strong>Date:</strong> <span style="color: var(--neon-yellow);">{{ booking.date if booking else '-' }}</span></li>
+                        <li><strong>Time:</strong> <span style="color: var(--neon-yellow);">{{ booking.time if booking else '-' }}</span></li>
+                        <li><strong>Duration:</strong> <span style="color: var(--neon-yellow);">{{ booking.duration if booking else '-' }} hours</span></li>
+                        <li><strong>Total Price:</strong> <span style="color: var(--neon-cyan);">${{ booking.total_price if booking else '-' }}</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="alert" style="background: #232336; color: var(--neon-yellow); box-shadow: 0 0 8px var(--neon-yellow);">
+                <i class="bi bi-info-circle"></i> Please review your booking details before confirming.
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

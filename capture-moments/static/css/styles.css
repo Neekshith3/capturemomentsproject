@@ -1,0 +1,92 @@
+/* Neon Theme Variables */
+:root {
+  --bg-dark: #18181B;
+  --neon-cyan: #00FFC6;
+  --neon-pink: #FF00EA;
+  --neon-blue: #00B2FF;
+  --neon-yellow: #F9FF00;
+  --text-main: #FFFFFF;
+  --text-secondary: #B0B0B0;
+  --font-main: 'Montserrat', 'Orbitron', Arial, sans-serif;
+}
+
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  min-height: 100vh;
+}
+
+.navbar, .footer {
+  background: #111118;
+  border-bottom: 2px solid var(--neon-cyan);
+  box-shadow: 0 2px 20px var(--neon-cyan);
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  color: var(--neon-cyan) !important;
+  font-family: 'Orbitron', 'Montserrat', Arial, sans-serif;
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link:hover {
+  color: var(--neon-pink) !important;
+  text-shadow: 0 0 8px var(--neon-pink);
+}
+
+.btn-neon {
+  background: var(--neon-cyan);
+  color: var(--bg-dark);
+  border: none;
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.btn-neon:hover {
+  background: var(--neon-pink);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-pink);
+}
+
+.card {
+  background: #232336;
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-blue);
+}
+
+a, a:visited {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 6px var(--neon-yellow);
+}
+a:hover {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+input, textarea, select {
+  background: #232336;
+  color: var(--text-main);
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 6px var(--neon-cyan);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: #232336;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-cyan);
+  border-radius: 5px;
+}
+
+.footer {
+  color: var(--neon-yellow);
+  text-align: center;
+  padding: 1rem 0;
+  border-top: 2px solid var(--neon-pink);
+  box-shadow: 0 -2px 20px var(--neon-pink);
+} 

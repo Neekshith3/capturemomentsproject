@@ -1,0 +1,1 @@
+git remote set-url origin https://<your-username>:<your-token>@github.com/Neekshith3/capture-moment.git

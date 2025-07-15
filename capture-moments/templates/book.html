@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Book a Photographer{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card p-4 mt-4">
+      <h2 class="text-center mb-4" style="color: var(--neon-cyan); text-shadow: 0 0 8px var(--neon-cyan);">Book a Photographer</h2>
+      <form method="POST">
+        <div class="mb-3">
+          <label for="photographer_id" class="form-label">Photographer ID:</label>
+          <input type="text" id="photographer_id" name="photographer_id" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="user_id" class="form-label">User ID:</label>
+          <input type="text" id="user_id" name="user_id" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="date" class="form-label">Date:</label>
+          <input type="date" id="date" name="date" class="form-control" min="1900-01-01" max="2100-12-31" required>
+        </div>
+        <button type="submit" class="btn btn-neon w-100">Book Now</button>
+      </form>
+      <a href="/" class="back-link mt-3 d-block text-center" style="color: var(--neon-yellow);">&larr; Back to Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %} 

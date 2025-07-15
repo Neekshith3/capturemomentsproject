@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Home - Capture Moments{% endblock %}
+{% block content %}
+<section class="hero text-center py-5">
+    <h1 class="display-4" style="color: var(--neon-cyan); text-shadow: 0 0 16px var(--neon-cyan);">Capture Your Special Moments</h1>
+    <p class="lead" style="color: var(--neon-yellow); text-shadow: 0 0 8px var(--neon-yellow);">Book professional photographers for any occasion, anytime, anywhere.</p>
+    <a href="{{ url_for('show_photographers') }}" class="btn btn-neon btn-lg">Find Photographers</a>
+    <a href="{{ url_for('signup') }}" class="btn btn-neon btn-lg ms-2">Join as Photographer</a>
+</section>
+<section class="featured-photographers py-5">
+    <div class="container">
+        <h2 class="mb-4" style="color: var(--neon-pink); text-shadow: 0 0 8px var(--neon-pink);">Featured Photographers</h2>
+        <div class="row">
+            <!-- Placeholder for featured photographers -->
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm text-center" style="box-shadow: 0 0 10px var(--neon-blue);">
+                    <img src="{{ url_for('static', filename='img/photographer1.jpg') }}" class="card-img-top" alt="Photographer 1">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: var(--neon-cyan);">Photographer Name</h5>
+                        <p class="card-text">Specialty: <span style="color: var(--neon-yellow);">Weddings</span></p>
+                        <a href="#" class="btn btn-neon">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm text-center" style="box-shadow: 0 0 10px var(--neon-blue);">
+                    <img src="{{ url_for('static', filename='img/photographer2.jpg') }}" class="card-img-top" alt="Photographer 2">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: var(--neon-cyan);">Photographer Name</h5>
+                        <p class="card-text">Specialty: <span style="color: var(--neon-yellow);">Portraits</span></p>
+                        <a href="#" class="btn btn-neon">View Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm text-center" style="box-shadow: 0 0 10px var(--neon-blue);">
+                    <img src="{{ url_for('static', filename='img/photographer3.jpg') }}" class="card-img-top" alt="Photographer 3">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: var(--neon-cyan);">Photographer Name</h5>
+                        <p class="card-text">Specialty: <span style="color: var(--neon-yellow);">Events</span></p>
+                        <a href="#" class="btn btn-neon">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 
